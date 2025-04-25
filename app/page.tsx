@@ -1,4 +1,3 @@
-
 // app/page.tsx
 "use client";
 import { useState, useEffect } from "react";
@@ -39,7 +38,7 @@ export default function Home() {
     }
   };
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#C1E6BB] to-white dark:from-[#18311D] dark:to-[#0c1a0f] text-[#18311D] dark:text-white">
+    <div className="min-h-screen bg-gradient-to-b from-zinc-100 to-white dark:from-zinc-800 dark:to-zinc-900 text-zinc-800 dark:text-zinc-100">
       {/* Navbar */}
       <header className="container mx-auto py-6 px-4">
         <div className="flex items-center justify-between">
@@ -49,10 +48,14 @@ export default function Home() {
             variants={moneyIconAnimation}
             className="flex items-center gap-2"
           >
-            <div className="bg-[#18311D] text-white p-4 rounded-full w-12 h-12 flex items-center justify-center">
-              <span className="text-3xl font-bold">S</span>
+            <div className="relative w-12 h-12">
+              <Image
+                src="/logo.png"
+                alt="Send Us Money Logo"
+                fill
+                className="object-contain"
+              />
             </div>
-            <h1 className="text-2xl font-bold">Send Us Money</h1>
           </motion.div>
           <motion.nav
             initial={{ opacity: 0 }}
@@ -60,24 +63,74 @@ export default function Home() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="hidden md:flex gap-8"
           >
-            <a href="#features" className="hover:text-[#224933] transition-colors">Features</a>
-            <a href="#about" className="hover:text-[#224933] transition-colors">About</a>
-            <a href="#testimonials" className="hover:text-[#224933] transition-colors">Testimonials</a>
-            <a href="#contact" className="hover:text-[#224933] transition-colors">Contact</a>
+            <a href="#features" className="text-zinc-700 hover:text-green-700 dark:text-zinc-300 dark:hover:text-green-400 transition-colors">Features</a>
+            <a href="#about" className="text-zinc-700 hover:text-green-700 dark:text-zinc-300 dark:hover:text-green-400 transition-colors">About</a>
+            <a href="#testimonials" className="text-zinc-700 hover:text-green-700 dark:text-zinc-300 dark:hover:text-green-400 transition-colors">Testimonials</a>
+            <a href="#contact" className="text-zinc-700 hover:text-green-700 dark:text-zinc-300 dark:hover:text-green-400 transition-colors">Contact</a>
           </motion.nav>
 
           <motion.button
             initial={{ opacity: 0, scale: 0.8 }}
             animate={mounted ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
             transition={{ duration: 0.3, delay: 0.4 }}
-            className="bg-[#18311D] hover:bg-[#224933] text-white px-6 py-2 rounded-full transition-colors"
+            className="bg-green-700 hover:bg-green-800 text-white px-6 py-2 rounded-full transition-colors"
           >
             Get Started
           </motion.button>
         </div>
       </header>
 
-      {/* Hero Section */}
+      {/* Hero Section with Image */}
+      <section className="relative w-full min-h-[600px] flex items-center">
+        {/* Hero Background Image */}
+        <div className="absolute inset-0 w-full h-full z-0">
+          <div className="absolute inset-0 bg-gradient-to-r from-green-900/80 to-zinc-900/70 z-10"></div>
+          <Image
+            src="/hero.jpg"
+            alt="Hero Background"
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+
+        <div className="container mx-auto px-4 z-20 text-white">
+          <div className="max-w-3xl">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={mounted ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.8 }}
+              className="text-4xl md:text-6xl font-bold mb-6"
+            >
+              Trust in Every Transaction, Convenience in Your Hands.
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={mounted ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-lg md:text-xl mb-8 text-zinc-200"
+            >
+              Send money from the U.S. to Brazil faster, more securely, and with lower fees — powered by blockchain technology.
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={mounted ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="flex flex-col sm:flex-row gap-4"
+            >
+              <button className="bg-green-600 hover:bg-green-700 text-white px-8 py-3 rounded-full text-lg transition-colors flex items-center gap-2">
+                <span>Create Account</span>
+                <ChevronRight size={20} />
+              </button>
+              <button className="border-2 border-white text-white hover:bg-white/10 px-8 py-3 rounded-full text-lg transition-colors">
+                Learn More
+              </button>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Info Section with animation */}
       <section className="container mx-auto py-20 px-4 flex flex-col md:flex-row items-center">
         <motion.div
           initial="hidden"
@@ -85,19 +138,19 @@ export default function Home() {
           variants={fadeInUp}
           className="md:w-1/2 mb-10 md:mb-0"
         >
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Trust in Every Transaction, Convenience in Your Hands.
-          </h1>
-          <p className="text-lg md:text-xl mb-8 text-[#224933] dark:text-[#C1E6BB]">
-            Send money from the U.S. to Brazil faster, more securely, and with lower fees — powered by blockchain technology.
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-zinc-800 dark:text-zinc-100">
+            Transferências Inteligentes para seu País
+          </h2>
+          <p className="text-lg md:text-xl mb-8 text-zinc-700 dark:text-zinc-300">
+            Nossa plataforma combina tecnologia blockchain com simplicidade e segurança, oferecendo as melhores taxas do mercado.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <button className="bg-[#18311D] hover:bg-[#224933] text-white px-8 py-3 rounded-full text-lg transition-colors flex items-center gap-2">
-              <span>Create Account</span>
+            <button className="bg-green-700 hover:bg-green-800 text-white px-8 py-3 rounded-full text-lg transition-colors flex items-center gap-2">
+              <span>Criar Conta</span>
               <ChevronRight size={20} />
             </button>
-            <button className="border-2 border-[#18311D] text-[#18311D] dark:text-white hover:bg-[#18311D]/10 px-8 py-3 rounded-full text-lg transition-colors">
-              Learn More
+            <button className="border-2 border-zinc-700 text-zinc-700 dark:border-zinc-300 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-800 px-8 py-3 rounded-full text-lg transition-colors">
+              Saiba Mais
             </button>
           </div>
         </motion.div>
@@ -119,9 +172,9 @@ export default function Home() {
           }}
           className="md:w-1/2 flex justify-center"
         >
-          <div className="relative w-80 h-80 bg-[#C1E6BB] dark:bg-[#224933] rounded-3xl overflow-hidden shadow-2xl">
+          <div className="relative w-80 h-80 bg-zinc-200 dark:bg-zinc-700 rounded-3xl overflow-hidden shadow-2xl">
             <div className="absolute w-full h-full flex items-center justify-center">
-              <DollarSign size={120} className="text-[#18311D] dark:text-white" />
+              <DollarSign size={120} className="text-green-700 dark:text-green-500" />
             </div>
             <motion.div
               animate={{
@@ -135,14 +188,14 @@ export default function Home() {
               }}
               className="absolute w-full h-full flex items-center justify-center"
             >
-              <div className="w-32 h-32 bg-[#18311D]/20 dark:bg-[#18311D]/40 rounded-full blur-xl"></div>
+              <div className="w-32 h-32 bg-green-600/20 dark:bg-green-500/20 rounded-full blur-xl"></div>
             </motion.div>
           </div>
         </motion.div>
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-20 bg-[#C1E6BB]/50 dark:bg-[#18311D]/70">
+      <section id="features" className="py-20 bg-zinc-100 dark:bg-zinc-800">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -151,32 +204,32 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose Send Us Money</h2>
-            <p className="text-lg max-w-2xl mx-auto text-[#224933] dark:text-[#C1E6BB]">
-              We make global financial transactions secure, practical, and accessible.
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-zinc-800 dark:text-zinc-100">Por Que Escolher Send Us Money</h2>
+            <p className="text-lg max-w-2xl mx-auto text-zinc-700 dark:text-zinc-300">
+              Tornamos transações financeiras globais seguras, práticas e acessíveis.
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
-                title: "Blockchain-Powered Transfers",
-                description: "Faster, cheaper, and more secure money movement.",
+                title: "Transferências via Blockchain",
+                description: "Movimento de dinheiro mais rápido, barato e seguro.",
                 icon: <Send className="h-8 w-8" />
               },
               {
-                title: "Portuguese Support",
-                description: "In-language support for Brazilian-American users.",
+                title: "Suporte em Português",
+                description: "Atendimento no idioma para brasileiros nos EUA.",
                 icon: <Globe className="h-8 w-8" />
               },
               {
-                title: "Multi-Service Platform",
-                description: "Includes travel, life, and commercial insurance.",
+                title: "Plataforma Multi-Serviço",
+                description: "Inclui seguro de viagem, vida e comercial.",
                 icon: <Shield className="h-8 w-8" />
               },
               {
-                title: "Simple Interface",
-                description: "Easy-to-use design with no learning curve.",
+                title: "Interface Simples",
+                description: "Design fácil de usar sem curva de aprendizado.",
                 icon: <Smartphone className="h-8 w-8" />
               },
             ].map((feature, index) => (
@@ -186,11 +239,11 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white dark:bg-[#224933] p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow"
+                className="bg-white dark:bg-zinc-700 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow"
               >
-                <div className="text-[#18311D] dark:text-white mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-                <p className="text-[#224933] dark:text-[#C1E6BB]">{feature.description}</p>
+                <div className="text-green-700 dark:text-green-500 mb-4">{feature.icon}</div>
+                <h3 className="text-xl font-bold mb-3 text-zinc-800 dark:text-zinc-100">{feature.title}</h3>
+                <p className="text-zinc-700 dark:text-zinc-300">{feature.description}</p>
               </motion.div>
             ))}
           </div>
@@ -208,17 +261,17 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               className="md:w-1/2"
             >
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">About Us</h2>
-              <p className="text-lg mb-6 text-[#224933] dark:text-[#C1E6BB]">
-                SEND US MONEY is a financial solution designed to simplify international money transfers. Our platform combines security, affordability, and usability — giving you full control of your finances from the palm of your hand.
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-zinc-800 dark:text-zinc-100">Sobre Nós</h2>
+              <p className="text-lg mb-6 text-zinc-700 dark:text-zinc-300">
+                SEND US MONEY é uma solução financeira projetada para simplificar transferências internacionais de dinheiro. Nossa plataforma combina segurança, acessibilidade e usabilidade — dando a você controle total de suas finanças na palma da sua mão.
               </p>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Mission</h2>
-              <p className="text-lg mb-6 text-[#224933] dark:text-[#C1E6BB]">
-                To make global financial transactions simple, secure, and accessible — empowering users to manage their money confidently, wherever they are.
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-zinc-800 dark:text-zinc-100">Nossa Missão</h2>
+              <p className="text-lg mb-6 text-zinc-700 dark:text-zinc-300">
+                Tornar as transações financeiras globais simples, seguras e acessíveis — capacitando os usuários a gerenciar seu dinheiro com confiança, onde quer que estejam.
               </p>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Vision</h2>
-              <p className="text-lg text-[#224933] dark:text-[#C1E6BB]">
-                To become the world's leading immigrant-focused financial platform, known for innovation, reliability, and simplicity.
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 text-zinc-800 dark:text-zinc-100">Nossa Visão</h2>
+              <p className="text-lg text-zinc-700 dark:text-zinc-300">
+                Tornar-se a principal plataforma financeira focada em imigrantes do mundo, conhecida por inovação, confiabilidade e simplicidade.
               </p>
             </motion.div>
 
@@ -231,12 +284,12 @@ export default function Home() {
             >
               <div className="grid grid-cols-2 gap-4">
                 {[
-                  { value: "Security", color: "bg-[#18311D]" },
-                  { value: "Transparency", color: "bg-[#1a3720]" },
-                  { value: "Innovation", color: "bg-[#1d3d22]" },
-                  { value: "Practicality", color: "bg-[#1f4325]" },
-                  { value: "Accessibility", color: "bg-[#224933]" },
-                  { value: "Inclusion", color: "bg-[#254f37]" },
+                  { value: "Segurança", color: "bg-green-700" },
+                  { value: "Transparência", color: "bg-green-600" },
+                  { value: "Inovação", color: "bg-green-600" },
+                  { value: "Praticidade", color: "bg-green-700" },
+                  { value: "Acessibilidade", color: "bg-green-800" },
+                  { value: "Inclusão", color: "bg-green-800" },
                 ].map((item, index) => (
                   <motion.div
                     key={index}
@@ -260,7 +313,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section id="testimonials" className="py-20 bg-[#C1E6BB]/50 dark:bg-[#18311D]/70">
+      <section id="testimonials" className="py-20 bg-zinc-100 dark:bg-zinc-800">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -269,9 +322,9 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">What People Are Saying</h2>
-            <p className="text-lg max-w-2xl mx-auto text-[#224933] dark:text-[#C1E6BB]">
-              Our users' trust is our priority.
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-zinc-800 dark:text-zinc-100">O Que Estão Dizendo</h2>
+            <p className="text-lg max-w-2xl mx-auto text-zinc-700 dark:text-zinc-300">
+              A confiança dos nossos usuários é nossa prioridade.
             </p>
           </motion.div>
 
@@ -279,18 +332,18 @@ export default function Home() {
             {[
               {
                 name: "Ana Silva",
-                location: "Florida",
-                comment: "The app is a game changer. I send money in seconds and the fees are super low."
+                location: "Flórida",
+                comment: "O aplicativo é revolucionário. Envio dinheiro em segundos e as taxas são super baixas."
               },
               {
                 name: "Marcos Oliveira",
                 location: "Massachusetts",
-                comment: "Customer support in Portuguese made me feel safe and understood."
+                comment: "Atendimento em português me fez sentir seguro e compreendido."
               },
               {
                 name: "Mariana Costa",
-                location: "New Jersey",
-                comment: "The platform is intuitive and the customer support is exceptional. I won't use anything else."
+                location: "Nova Jersey",
+                comment: "A plataforma é intuitiva e o suporte ao cliente é excepcional. Não vou usar mais nada."
               },
             ].map((testimonial, index) => (
               <motion.div
@@ -299,16 +352,16 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white dark:bg-[#224933] p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow"
+                className="bg-white dark:bg-zinc-700 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-shadow"
               >
                 <div className="flex flex-col h-full">
-                  <div className="mb-4 text-[#18311D]">
+                  <div className="mb-4 text-green-600">
                     {"★".repeat(5)}
                   </div>
-                  <p className="italic mb-6 flex-grow text-[#224933] dark:text-[#C1E6BB]">"{testimonial.comment}"</p>
+                  <p className="italic mb-6 flex-grow text-zinc-700 dark:text-zinc-300">"{testimonial.comment}"</p>
                   <div>
-                    <p className="font-bold">{testimonial.name}</p>
-                    <p className="text-sm text-[#224933] dark:text-[#C1E6BB]">{testimonial.location}</p>
+                    <p className="font-bold text-zinc-800 dark:text-zinc-100">{testimonial.name}</p>
+                    <p className="text-sm text-zinc-600 dark:text-zinc-400">{testimonial.location}</p>
                   </div>
                 </div>
               </motion.div>
@@ -325,18 +378,18 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-[#C1E6BB]/50 dark:bg-[#224933] rounded-3xl p-12 text-center shadow-xl"
+            className="bg-zinc-100 dark:bg-zinc-700 rounded-3xl p-12 text-center shadow-xl"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Download the App</h2>
-            <p className="text-lg mb-8 max-w-2xl mx-auto text-[#224933] dark:text-[#C1E6BB]">
-              Send money smarter, safer, and faster.
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-zinc-800 dark:text-zinc-100">Baixe o Aplicativo</h2>
+            <p className="text-lg mb-8 max-w-2xl mx-auto text-zinc-700 dark:text-zinc-300">
+              Envie dinheiro de forma mais inteligente, segura e rápida.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-[#18311D] hover:bg-[#224933] text-white px-8 py-3 rounded-full font-bold transition-colors flex items-center justify-center gap-2">
-                <span>Download on iOS</span>
+              <button className="bg-green-700 hover:bg-green-800 text-white px-8 py-3 rounded-full font-bold transition-colors flex items-center justify-center gap-2">
+                <span>Download para iOS</span>
               </button>
-              <button className="border-2 border-[#18311D] text-[#18311D] dark:text-white hover:bg-[#18311D]/10 px-8 py-3 rounded-full font-bold transition-colors">
-                Coming Soon on Android
+              <button className="border-2 border-zinc-700 text-zinc-700 dark:border-zinc-300 dark:text-zinc-300 hover:bg-zinc-100 dark:hover:bg-zinc-600 px-8 py-3 rounded-full font-bold transition-colors">
+                Em breve para Android
               </button>
             </div>
           </motion.div>
@@ -351,11 +404,11 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-[#18311D] text-white rounded-3xl p-12 text-center shadow-2xl"
+            className="bg-green-700 text-white rounded-3xl p-12 text-center shadow-2xl"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Get Started?</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Pronto para Começar?</h2>
             <p className="text-lg mb-8 max-w-2xl mx-auto">
-              Join thousands of satisfied users and experience the most secure and practical way to send money to Brazil.
+              Junte-se a milhares de usuários satisfeitos e experimente a maneira mais segura e prática de enviar dinheiro para o Brasil.
             </p>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -366,11 +419,11 @@ export default function Home() {
             >
               <input
                 type="email"
-                placeholder="Your best email"
-                className="px-6 py-3 rounded-full text-[#18311D] focus:outline-none focus:ring-2 focus:ring-[#C1E6BB]"
+                placeholder="Seu melhor email"
+                className="px-6 py-3 rounded-full text-zinc-800 focus:outline-none focus:ring-2 focus:ring-zinc-300"
               />
-              <button className="bg-[#C1E6BB] text-[#18311D] hover:bg-[#afd6a8] px-8 py-3 rounded-full font-bold transition-colors">
-                Get Started Now
+              <button className="bg-white text-green-700 hover:bg-zinc-100 px-8 py-3 rounded-full font-bold transition-colors">
+                Comece Agora
               </button>
             </motion.div>
           </motion.div>
@@ -378,20 +431,25 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#18311D] text-white py-12">
+      <footer className="bg-zinc-800 text-white py-12">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between mb-8">
             <div className="mb-8 md:mb-0">
               <div className="flex items-center gap-2 mb-4">
-                <div className="bg-[#224933] text-white p-3 rounded-full w-10 h-10 flex items-center justify-center">
-                  <span className="text-xl font-bold">S</span>
+                <div className="relative w-10 h-10">
+                  <Image
+                    src="/logo.png"
+                    alt="Send Us Money Logo"
+                    fill
+                    className="object-contain"
+                  />
                 </div>
                 <h3 className="text-xl font-bold">Send Us Money</h3>
               </div>
-              <p className="max-w-xs text-[#C1E6BB]">
-                Trust in every transaction, convenience in your hands.
+              <p className="max-w-xs text-zinc-300">
+                Confiança em cada transação, conveniência em suas mãos.
               </p>
-              <p className="text-sm mt-4 text-[#C1E6BB]">
+              <p className="text-sm mt-4 text-zinc-300">
                 SEND US MONEY LLC<br />
                 16192 Coastal Highway, Lewes, DE, 19958
               </p>
@@ -399,43 +457,43 @@ export default function Home() {
 
             <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
               <div>
-                <h4 className="font-bold mb-4">Company</h4>
-                <ul className="space-y-2 text-[#C1E6BB]">
-                  <li><a href="#" className="hover:text-white transition-colors">About Us</a></li>
-                  <li><a href="#" className="hover:text-white transition-colors">Careers</a></li>
+                <h4 className="font-bold mb-4">Empresa</h4>
+                <ul className="space-y-2 text-zinc-300">
+                  <li><a href="#" className="hover:text-white transition-colors">Sobre Nós</a></li>
+                  <li><a href="#" className="hover:text-white transition-colors">Carreiras</a></li>
                   <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
                 </ul>
               </div>
               <div>
-                <h4 className="font-bold mb-4">Product</h4>
-                <ul className="space-y-2 text-[#C1E6BB]">
-                  <li><a href="#" className="hover:text-white transition-colors">Features</a></li>
-                  <li><a href="#" className="hover:text-white transition-colors">Pricing</a></li>
+                <h4 className="font-bold mb-4">Produto</h4>
+                <ul className="space-y-2 text-zinc-300">
+                  <li><a href="#" className="hover:text-white transition-colors">Recursos</a></li>
+                  <li><a href="#" className="hover:text-white transition-colors">Preços</a></li>
                   <li><a href="#" className="hover:text-white transition-colors">FAQ</a></li>
                 </ul>
               </div>
               <div>
                 <h4 className="font-bold mb-4">Legal</h4>
-                <ul className="space-y-2 text-[#C1E6BB]">
-                  <li><a href="#" className="hover:text-white transition-colors">Privacy</a></li>
-                  <li><a href="#" className="hover:text-white transition-colors">Terms</a></li>
-                  <li><a href="#" className="hover:text-white transition-colors">Security</a></li>
+                <ul className="space-y-2 text-zinc-300">
+                  <li><a href="#" className="hover:text-white transition-colors">Privacidade</a></li>
+                  <li><a href="#" className="hover:text-white transition-colors">Termos</a></li>
+                  <li><a href="#" className="hover:text-white transition-colors">Segurança</a></li>
                 </ul>
               </div>
             </div>
           </div>
 
-          <div className="border-t border-[#224933] pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-[#C1E6BB] mb-4 md:mb-0">&copy; 2025 Send Us Money. All rights reserved.</p>
-            <p className="text-[#C1E6BB] mb-4 md:mb-0">Contact: support@sendusmoney.us</p>
+          <div className="border-t border-zinc-700 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <p className="text-zinc-400 mb-4 md:mb-0">&copy; 2025 Send Us Money. Todos os direitos reservados.</p>
+            <p className="text-zinc-400 mb-4 md:mb-0">Contato: support@sendusmoney.us</p>
             <div className="flex gap-6">
-              <a href="#" className="text-[#C1E6BB] hover:text-white transition-colors">
+              <a href="#" className="text-zinc-400 hover:text-white transition-colors">
                 <Twitter size={20} />
               </a>
-              <a href="#" className="text-[#C1E6BB] hover:text-white transition-colors">
+              <a href="#" className="text-zinc-400 hover:text-white transition-colors">
                 <Linkedin size={20} />
               </a>
-              <a href="#" className="text-[#C1E6BB] hover:text-white transition-colors">
+              <a href="#" className="text-zinc-400 hover:text-white transition-colors">
                 <Instagram size={20} />
               </a>
             </div>
