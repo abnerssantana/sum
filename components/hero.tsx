@@ -84,7 +84,7 @@ export default function Hero() {
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-sm opacity-80">Receiving</p>
-                      <p className="text-2xl font-bold">R$2,500.00</p>
+                      <p className="text-2xl font-bold">R$2840,90</p>
                     </div>
                     <div className="rounded-md bg-white/20 p-2 h-10 w-10 flex items-center justify-center shadow-inner">
                       <span className="text-base font-bold">BRL</span>
