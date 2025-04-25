@@ -59,7 +59,7 @@ export default function Hero() {
                       <p className="text-sm opacity-80">Enviando</p>
                       <p className="text-2xl font-bold">$500.00</p>
                     </div>
-                    <div className="rounded-full bg-white/20 p-2">
+                    <div className="rounded-full bg-white/20 p-6 h-9 w-9 flex items-center justify-center">
                       <span className="text-xl">🇺🇸</span>
                     </div>
                   </div>
@@ -71,7 +71,7 @@ export default function Hero() {
                       <p className="text-sm opacity-80">Recebendo</p>
                       <p className="text-2xl font-bold">R$2,500.00</p>
                     </div>
-                    <div className="rounded-full bg-white/20 p-2">
+                    <div className="rounded-full bg-white/20 p-6 h-9 w-9 flex items-center justify-center">
                       <span className="text-xl">🇧🇷</span>
                     </div>
                   </div>
