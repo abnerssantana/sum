@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button"
 import Image from "next/image"
 export default function DownloadCta() {
   return (
@@ -31,14 +30,14 @@ export default function DownloadCta() {
               </a>
             </div>
             <div className="pt-4">
-              <p className="text-sm opacity-80">Available on the App Store. Android version coming soon.</p>
+              <p className="text-sm opacity-80">Download now on the App Store and Google Play.</p>
             </div>
           </div>
           <div className="relative mx-auto max-w-xs md:max-w-sm">
-            <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-secondary to-secondary/50 opacity-75 blur-lg"></div>
+            <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-secondary to-secondary/20 opacity-85 blur-lg"></div>
             <div className="relative overflow-hidden rounded-3xl bg-white/10 backdrop-blur-sm border border-white/20 shadow-xl">
               <Image
-                src="/placeholder.svg?height=600&width=300"
+                src="/S.svg?height=300&width=300"
                 width={300}
                 height={600}
                 alt="SEND US MONEY App"
