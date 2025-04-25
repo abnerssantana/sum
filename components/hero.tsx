@@ -18,16 +18,13 @@ export default function Hero() {
           <div className="flex items-center">
             <Link href="/" className="inline-block">
               <div className="flex items-center gap-2">
-                <div className="bg-white rounded-lg p-1">
                   <Image
-                    src="/placeholder.svg?height=40&width=40"
+                    src="/logo.png"
                     alt="SEND US MONEY Logo"
-                    width={40}
-                    height={40}
-                    className="h-8 w-auto"
+                    width={200}
+                    height={90}
+                    className="h-14 w-auto"
                   />
-                </div>
-                <span className="font-bold text-xl md:text-2xl">SEND US MONEY</span>
               </div>
             </Link>
           </div>
