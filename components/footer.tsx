@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import Link from "next/link"
 import { Instagram, Linkedin, Mail, MapPin, Phone } from "lucide-react"
-
 export default function Footer() {
   return (
     <footer className="bg-[#191919] text-white">
@@ -12,21 +11,20 @@ export default function Footer() {
             <h3 className="text-xl font-bold">SEND US MONEY</h3>
             <p className="text-gray-400">Making global financial transactions simple, secure, and accessible.</p>
             <div className="flex space-x-4">
-              <Link href="#" className="text-gray-400 hover:text-secondary transition-colors">
+              <Link href="https://www.instagram.com/joinsum/" className="text-gray-400 hover:text-secondary transition-colors" target="_blank" rel="noopener noreferrer">
                 <Instagram className="h-5 w-5" />
                 <span className="sr-only">Instagram</span>
               </Link>
-              <Link href="#" className="text-gray-400 hover:text-secondary transition-colors">
+              <Link href="https://www.linkedin.com/company/send-us-money" className="text-gray-400 hover:text-secondary transition-colors" target="_blank" rel="noopener noreferrer">
                 <Linkedin className="h-5 w-5" />
                 <span className="sr-only">LinkedIn</span>
               </Link>
-              <Link href="#" className="text-gray-400 hover:text-secondary transition-colors">
+              <Link href="mailto:support@sendusmoney.us" className="text-gray-400 hover:text-secondary transition-colors">
                 <Mail className="h-5 w-5" />
                 <span className="sr-only">Email</span>
               </Link>
             </div>
           </div>
-
           <div className="space-y-4">
             <h3 className="text-lg font-semibold">Quick Links</h3>
             <ul className="space-y-2">
@@ -62,12 +60,12 @@ export default function Footer() {
             <h3 className="text-lg font-semibold">Legal</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="#" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/terms" className="text-gray-400 hover:text-white transition-colors">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/terms" className="text-gray-400 hover:text-white transition-colors">
                   Terms of Use
                 </Link>
               </li>
