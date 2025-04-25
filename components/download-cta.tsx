@@ -1,7 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { AppleIcon } from "lucide-react"
 import Image from "next/image"
-
 export default function DownloadCta() {
   return (
     <section className="py-20 bg-primary text-white">
@@ -13,18 +11,29 @@ export default function DownloadCta() {
               Send money smarter, safer, and faster. Experience the future of international money transfers today.
             </p>
             <div className="flex flex-wrap gap-4 pt-4">
-              <Button size="lg" className="bg-secondary hover:bg-secondary/90 text-black font-semibold">
-                <AppleIcon className="mr-2 h-5 w-5" /> Download on iOS
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
-                Coming Soon on Android
-              </Button>
+              <a href="#" className="transition hover:opacity-90">
+                <Image
+                  src="/apple.svg"
+                  width={129}
+                  height={43}
+                  alt="Download on App Store"
+                  className="h-12 w-auto"
+                />
+              </a>
+              <a href="#" className="transition hover:opacity-90">
+                <Image
+                  src="/google.svg"
+                  width={145}
+                  height={44}
+                  alt="Get it on Google Play"
+                  className="h-12 w-auto"
+                />
+              </a>
             </div>
             <div className="pt-4">
               <p className="text-sm opacity-80">Available on the App Store. Android version coming soon.</p>
             </div>
           </div>
-
           <div className="relative mx-auto max-w-xs md:max-w-sm">
             <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-secondary to-secondary/50 opacity-75 blur-lg"></div>
             <div className="relative overflow-hidden rounded-3xl bg-white/10 backdrop-blur-sm border border-white/20 shadow-xl">
